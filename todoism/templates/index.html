@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <title>待办事项！</title>
+    <link href="{{ url_for('static', filename='css/materialize.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div id="main">
+
+    </div>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}" type="text/javascript"></script>
+    <script type="text/javascript">
+        var csrf_token = "{{ csrf_token() }}";
+        // 为了方便 在AJAX中发送请求到对应的url， 要在根页面定义多个javascript变量
+        var login_page_url = "{{ url_for('auth.login') }}";
+        var app_page_url = "{{ url_for('todo.app') }}";
+        var intro_page_url = "{{ url_for('home.intro') }}";
+        var new_item_url = "{{ url_for('todo.new_item') }}";
+        var clear_item_url = "{{ url_for('todo.clear_items') }}";
+        var login_url = "{{ url_for('auth.login') }}";
+        var register_url = "{{ url_for('auth.register') }}";
+        var logout_url = "{{ url_for('auth.logout') }}";
+        var default_error_message = " 发生了一些错误！";
+        var empty_body_error_message = "你的待办事项为空！";
+        var login_error_message = "空的用户名或密码！ ";
+    </script>
+</body>
+</html>

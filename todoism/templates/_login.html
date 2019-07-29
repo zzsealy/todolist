@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <header class="center">
+        <h4 class="red-text">{{ _('登陆待办事项程序') }}</h4><br>
+    </header>
+    <div class="login-form">
+        <input class="validate login-input" id="username-input" name="username" type="text" placeholder="Username"
+               autofocus required>
+        <input class="validate login-input" id="password-input" name="password" type="password" placeholder="Password"
+               required>
+        <span class="right">
+            <a class="btn grey" id="register-btn">{{ _('获得测试账号') }}</a>
+            <a class="btn red" id="login-btn">{{ _('登陆') }}</a>
+        </span>
+        <p><a class="blue-text link button left" id="toggle-password">{{ _('切换密码') }}</a></p>&nbsp;
+    </div>
+{% endblock %}
