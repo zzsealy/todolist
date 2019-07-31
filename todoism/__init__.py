@@ -6,6 +6,7 @@ import click
 from flask import Flask, render_template
 from flask_login import current_user
 
+from todoism.apis.v1 import api_v1
 from todoism.blueprints.auth import auth_bp
 from todoism.blueprints.home import home_bp
 from todoism.blueprints.todo import todo_bp
@@ -33,6 +34,7 @@ def register_extensions(app):
     db.init_app(app)
     login_manage.init_app(app)
     csrf.init_app(app)
+    csrf.exempt(api_v1)  # csrf 设置了全局SCRF保护，但是api_v1不需要，因为api不进行cookie用户认证。
     babel.init_app(app)
 
 
@@ -40,6 +42,8 @@ def register_blueprints(app):
     app.register_blueprint(auth_bp)
     app.register_blueprint(todo_bp)
     app.register_blueprint(home_bp)
+    app.register_blueprint(api_v1, url_prefix='/api/v1')  # url_prefix 为蓝本设置前缀。
+    # app.register_blueprint(api_v1, url_prefix='/v1', subdomain='api') # 设置子域。
 
 
 def register_template_context(app):  # 注册上下文
