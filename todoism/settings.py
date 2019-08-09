@@ -6,7 +6,7 @@ basedir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
 class BaseConfig(object):
     TODOISM_LOCALES = ['zh_Hans_CN', 'en_US']  # 定义中文和英语语言支持
-    TODOISM_ITEM_PER_PAGE = 20
+    TODOISM_ITEM_PER_PAGE = 20      # 每页显示数
 
     BABEL_DEFAULT_LOCALE = TODOISM_LOCALES[0]    # 默认设置是中文。
     SECRET_KEY = os.getenv('SECRET_KEY', 'sajfiojasiofhiahr')

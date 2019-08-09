@@ -3,7 +3,7 @@ import flask
 import os
 
 import click
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from flask_login import current_user
 
 from todoism.apis.v1 import api_v1
@@ -54,6 +54,12 @@ def register_template_context(app):  # 注册上下文
         else:
             active_items = None
         return dict(active_items=active_items)
+
+'''
+@api_v1.route('/')
+def index():
+    return jsonify(message='hello world!')
+'''
 
 
 def register_errors(app):

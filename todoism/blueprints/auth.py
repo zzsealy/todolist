@@ -46,7 +46,6 @@ def register():   # 注册页面
     user.set_password(password)
     db.session.add(user)
     db.session.commit()
-
     item = Item(body='明天晚上吃烤肉！', author=user)
     item2 = Item(body='帮助一个不认识的人！', author=user)
     item3 = Item(body='今天晚上跑五公里！', author=user)
